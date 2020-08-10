@@ -1,0 +1,225 @@
+<ion-content padding ngClass="color{{index}}">
+    <ion-slides pager (ionSlideDidChange)="slideChanged()" direction="vertical">
+        <!--dir="rtl"  paginationType="progress"-->
+        <ion-slide>
+            <h1>Welcome</h1>
+            <img src="../../assets/imgs/girlicon.png" alt="Dudo's logo">
+            <p class="main">Dudo is your annoying friend, your period. And this app will help you track her visits</p>
+            <div class="btn-bar">
+                <div class="right-btn" (click)="goToNextSlide()">
+                    OK let's do it
+                    <ion-icon name="arrow-down"></ion-icon>
+                </div>
+            </div>
+        </ion-slide>
+
+        <ion-slide>
+            <ion-card>
+                <ion-card-header>
+                    How long is your <span class="highlight">period</span>?
+                </ion-card-header>
+                <ion-card-content>
+                    <p>
+                        Period length is the number of bleeding days until complete dryness or until the white discharge comes out.
+                        <span class="hint">Normal is 2-15 days.</span>
+                    </p>
+                    <ion-range min="1" max="20" [(ngModel)]="period">
+                        <ion-label range-left>1</ion-label>
+                        <ion-label range-right>20</ion-label>
+                    </ion-range>
+                    <div class="value">{{period}}</div>
+                </ion-card-content>
+            </ion-card>
+            <div class="btn-bar">
+                <div class="left-btn" (click)="goToPrevSlide()">
+                    <ion-icon name="arrow-up"></ion-icon>
+                    Previous
+                </div>
+                <div class="right-btn" (click)="goToNextSlide()">
+                    Next
+                    <ion-icon name="arrow-down"></ion-icon>
+                </div>
+            </div>
+        </ion-slide>
+
+        <ion-slide>
+            <ion-card>
+                <ion-card-header>
+                    How long is your <span class="highlight">cycle</span>?
+                </ion-card-header>
+                <ion-card-content>
+                    <p>
+                        Cycle length is the number of days between first day of two periods.
+                        <span class="hint">Normal is 21-35 days.</span>
+                    </p>
+                    <ion-range min="15" max="50" [(ngModel)]="cycle">
+                        <ion-label range-left>15</ion-label>
+                        <ion-label range-right>50</ion-label>
+                    </ion-range>
+                    <div class="value">{{cycle}}</div>
+                </ion-card-content>
+            </ion-card>
+            <div class="btn-bar">
+                <div class="left-btn" (click)="goToPrevSlide()">
+                    <ion-icon name="arrow-up"></ion-icon>
+                    Previous
+                </div>
+                <div class="right-btn" (click)="goToNextSlide()">
+                    Next
+                    <ion-icon name="arrow-down"></ion-icon>
+                </div>
+            </div>
+        </ion-slide>
+
+        <ion-slide>
+            <ion-card>
+                <ion-card-header>
+                    How long is your <span class="highlight">pms</span>?
+                </ion-card-header>
+                <ion-card-content>
+                    <p>
+                        PMS premenstrual syndrome is the combination of symptoms before the period.
+                        <span class="hint">Normal is 0-7 days.</span>
+                    </p>
+                    <ion-range min="0" max="10" [(ngModel)]="pms">
+                        <ion-label range-left>0</ion-label>
+                        <ion-label range-right>10</ion-label>
+                    </ion-range>
+                    <div class="value">{{pms}}</div>
+                </ion-card-content>
+            </ion-card>
+            <div class="btn-bar">
+                <div class="left-btn" (click)="goToPrevSlide()">
+                    <ion-icon name="arrow-up"></ion-icon>
+                    Previous
+                </div>
+                <div class="right-btn" (click)="goToNextSlide()">
+                    Next
+                    <ion-icon name="arrow-down"></ion-icon>
+                </div>
+            </div>
+        </ion-slide>
+
+        <ion-slide>
+            <ion-card>
+                <ion-card-header>
+                    When was your <span class="highlight">last period</span>?
+                </ion-card-header>
+                <ion-card-content>
+                    <p>
+                        Date of the first day of your last period.
+                    </p>
+                    <div>
+                        <ion-icon name="calendar" class="calendar">
+                            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="last"></ion-datetime>
+                        </ion-icon>
+                    </div>
+                    <p *ngIf="last">
+                        You may add more previous periods in your profile later.
+                    </p>
+                </ion-card-content>
+            </ion-card>
+            <div class="btn-bar">
+                <div class="left-btn" (click)="goToPrevSlide()">
+                    <ion-icon name="arrow-up"></ion-icon>
+                    Previous
+                </div>
+                <div class="right-btn" (click)="goToNextSlide()">
+                    Next
+                    <ion-icon name="arrow-down"></ion-icon>
+                </div>
+            </div>
+        </ion-slide>
+
+        <ion-slide>
+            <ion-card>
+                <ion-card-header>
+                    What do you want this app to <span class="highlight">help</span> you in?
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-list radio-group [(ngModel)]="action">
+                        <ion-item>
+                            <ion-label>Tracking Dudo's Visits</ion-label>
+                            <ion-radio value="1" checked></ion-radio>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Getting Pregnent</ion-label>
+                            <ion-radio value="2"></ion-radio>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Avoiding Pregnancy</ion-label>
+                            <ion-radio value="3"></ion-radio>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>I am Pregnancy</ion-label>
+                            <ion-radio value="4"></ion-radio>
+                        </ion-item>
+                    </ion-list>
+                    <div class="margintop" [hidden]="action != 4">
+                        <p>
+                            What <span class="highlight">week</span> are you?
+                        </p>
+                        <ion-range min="0" max="41" [(ngModel)]="week">
+                            <ion-label range-left>0</ion-label>
+                            <ion-label range-right>41</ion-label>
+                        </ion-range>
+                        <div class="value">{{week}}</div>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+            <div class="btn-bar">
+                <div class="left-btn" (click)="goToPrevSlide()">
+                    <ion-icon name="arrow-up"></ion-icon>
+                    Previous
+                </div>
+                <div class="right-btn" (click)="goToNextSlide()">
+                    Next
+                    <ion-icon name="arrow-down"></ion-icon>
+                </div>
+            </div>
+        </ion-slide>
+
+        <ion-slide>
+            <ion-card>
+                <ion-card-header>
+                    Would you like to track <span class="highlight">qadaa</span> days for you?
+                </ion-card-header>
+                <ion-card-content>
+                    <p>
+                        The days you haven't fasted in Ramadhan.
+                    </p>
+                    <ion-list radio-group [(ngModel)]="qadaa">
+                        <ion-item>
+                            <ion-label>No Thanks</ion-label>
+                            <ion-radio value="1" checked></ion-radio>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Yes Please</ion-label>
+                            <ion-radio value="2"></ion-radio>
+                        </ion-item>
+                    </ion-list>
+                    <div class="margintop" [hidden]="qadaa != 2">
+                        <p>
+                            Do you have any days to be fasted as <span class="highlight">qadaa</span>?
+                        </p>
+                        <ion-range min="0" max="100" [(ngModel)]="qadaaDays">
+                            <ion-label range-left>0</ion-label>
+                            <ion-label range-right>100</ion-label>
+                        </ion-range>
+                        <div class="value">{{qadaaDays}}</div>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+            <div class="btn-bar">
+                <div class="left-btn" (click)="goToPrevSlide()">
+                    <ion-icon name="arrow-up"></ion-icon>
+                    Previous
+                </div>
+                <div class="right-btn" (click)="goToHome()">
+                    Finish
+                    <ion-icon name="done-all"></ion-icon>
+                </div>
+            </div>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

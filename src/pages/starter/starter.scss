@@ -1,0 +1,106 @@
+page-starter {
+    $_1: #42cdc9;
+    $_2: #4c98cf;
+    $_3: #4874a8;
+    $_4: #615398;
+    $_5: #5f4271;
+    $_6: #4b335a;
+    $_7: #f75193;
+    $_8: #fff;
+    $_9: #222;
+    .color0 {
+        background: linear-gradient(to bottom, $_1, $_2, $_3, $_4, $_5, $_6);
+    }
+    .color1 {
+        background: $_1;
+    }
+    .color2 {
+        background: $_2;
+    }
+    .color3 {
+        background: $_3;
+    }
+    .color4 {
+        background: $_4;
+    }
+    .color5 {
+        background: $_5;
+    }
+    .color6 {
+        background: $_6;
+    }
+    ion-card {
+        color: $_9;
+        text-align: left;
+    }
+    h1,
+    .main {
+        color: $_8;
+    }
+    .main {
+        font-size: 16px;
+    }
+    .hint,
+    .highlight {
+        color: $_7;
+    }
+    .highlight {
+        text-transform: uppercase;
+    }
+    .swiper-container-vertical>.swiper-pagination-bullets {
+        top: 10%;
+    }
+    .swiper-pagination-bullet-active {
+        background-color: $_7;
+    }
+    .btn-bar {
+        color: $_8;
+        width: 100%
+    }
+    .right-btn,
+    .left-btn {
+        position: fixed;
+        bottom: 15px;
+    }
+    .right-btn {
+        right: 0;
+        text-align: right;
+    }
+    .left-btn {
+        left: 0;
+        text-align: left;
+    }
+    .range-bar-active,
+    .range-knob {
+        background-color: $_7 !important;
+    }
+    .value,
+    .datetime-text,
+    .text-input {
+        text-align: center;
+        font-size: 35px;
+        color: $_7;
+        font-weight: bold;
+        line-height: 1.5;
+        font-family: "Roboto", "Helvetica Neue", sans-serif;
+    }
+    .calendar {
+        color: $_9;
+        font-size: 4em;
+        text-align: center;
+        width: 100%;
+        padding-top: 15px;
+    }
+    .item-radio-checked ion-label {
+        color: $_7 !important;
+    }
+    .radio-checked {
+        border-color: $_7 !important;
+    }
+    .radio-inner {
+        background-color: $_7 !important;
+    }
+    .margintop {
+        margin-top: 20px;
+    }
+}
